@@ -17,21 +17,21 @@ export default function PortfolioPage() {
                 className="rounded-full shadow-md"
               />
             </div>
-            <h1 className="text-3xl font-bold mt-4"></h1>
+            <h1 className="text-3xl font-bold mt-4">Thuwanon Najai</h1>
           </div>
 
           {/* Education Section */}
           <div className="p-6 bg-blue-50 rounded-lg shadow-md">
-            <h2 className="text-2xl font-bold mb-4">Education</h2>
-            <p className="text-xl font-semibold">University of Phayao</p>
-            <p className="mt-2">Faculty of Information and Communication Technology</p>
-            <p className="mt-1">Software Engineering</p>
-            <p className="mt-4 text-gray-600">2023 - Present</p>
+            <h2 className="text-2xl font-bold mb-4">ประวัติการศึกษา</h2>
+            <p className="text-xl font-semibold">มหาวิทยาลัยพะเยา</p>
+            <p className="mt-2">คณะเทคโนโยีสารสนเทศและการสื่อสาร</p>
+            <p className="mt-1">สาขาวิศวกรรมซอฟต์แวร์</p>
+            <p className="mt-4 text-gray-600">เข้าศึกษาเมื่อปี 2023-ปัจจุบัน</p>
           </div>
 
           {/* Skills Section */}
           <div className="p-6 bg-blue-50 rounded-lg shadow-md">
-            <h2 className="text-2xl font-bold mb-4">Skills</h2>
+            <h2 className="text-2xl font-bold mb-4">ทักษะ</h2>
             <ul className="list-disc pl-5 space-y-2">
               <li>Programming: JavaScript, Python</li>
               <li>Web Development: HTML, CSS, React, Next.js</li>
