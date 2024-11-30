@@ -9,7 +9,7 @@ export default function Home() {
     "/image/arlecchino1.jpeg"
   );
   const [displayedTexts, setDisplayedTexts] = useState<string[]>([]); // Tracks all completed texts
-  const texts = ["Welcome to My Portfolio", "Thuwanon Najai"]; // Texts to type
+  const texts = ["Welcome to Portfolio", "Thuwanon Najai"]; // Texts to type
   const [textIndex, setTextIndex] = useState<number>(0); // Current text index
   const [currentCharIndex, setCurrentCharIndex] = useState<number>(0); // Current character index
 
