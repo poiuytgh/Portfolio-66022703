@@ -8,7 +8,6 @@ export default function Home() {
   const [backgroundImage, setBackgroundImage] = useState<string>("/image/arlecchino1.jpeg");
   const [currentText, setCurrentText] = useState<string>(""); // Holds the currently typed text
   const texts = ["Welcome to My Portfolio", "Thuwanon Najai"]; // Text to type
-  const [textIndex, setTextIndex] = useState<number>(0);
 
   const handleClick = () => {
     router.push("/data");
@@ -29,27 +28,20 @@ export default function Home() {
 
   // Typing effect for the text
   useEffect(() => {
-    if (textIndex < texts.length) {
-      let currentCharIndex = 0;
+    let fullText = texts.join(" "); // Combine all texts into one string
+    let currentCharIndex = 0;
 
-      const typingInterval = setInterval(() => {
-        setCurrentText((prev) =>
-          prev + texts[textIndex][currentCharIndex]
-        );
-        currentCharIndex++;
+    const typingInterval = setInterval(() => {
+      setCurrentText((prev) => prev + fullText[currentCharIndex]);
+      currentCharIndex++;
 
-        if (currentCharIndex === texts[textIndex].length) {
-          clearInterval(typingInterval);
-          setTimeout(() => {
-            setTextIndex((prevIndex) => prevIndex + 1);
-            setCurrentText(""); // Reset text for the next string
-          }, 1000); // Wait 1 second before typing the next text
-        }
-      }, 100); // Typing speed
+      if (currentCharIndex === fullText.length) {
+        clearInterval(typingInterval); // Stop typing when the whole text is done
+      }
+    }, 100); // Typing speed
 
-      return () => clearInterval(typingInterval);
-    }
-  }, [textIndex]);
+    return () => clearInterval(typingInterval);
+  }, []);
 
   return (
     <div
