@@ -6,6 +6,9 @@ import { useState, useEffect } from "react";
 export default function Home() {
   const router = useRouter();
   const [backgroundImage, setBackgroundImage] = useState<string>("/image/arlecchino1.jpeg");
+  const [currentText, setCurrentText] = useState<string>(""); // Holds the currently typed text
+  const texts = ["Welcome to My Portfolio", "Thuwanon Najai"]; // Text to type
+  const [textIndex, setTextIndex] = useState<number>(0);
 
   const handleClick = () => {
     router.push("/data");
@@ -24,6 +27,30 @@ export default function Home() {
     return () => clearInterval(interval);
   }, []);
 
+  // Typing effect for the text
+  useEffect(() => {
+    if (textIndex < texts.length) {
+      let currentCharIndex = 0;
+
+      const typingInterval = setInterval(() => {
+        setCurrentText((prev) =>
+          prev + texts[textIndex][currentCharIndex]
+        );
+        currentCharIndex++;
+
+        if (currentCharIndex === texts[textIndex].length) {
+          clearInterval(typingInterval);
+          setTimeout(() => {
+            setTextIndex((prevIndex) => prevIndex + 1);
+            setCurrentText(""); // Reset text for the next string
+          }, 1000); // Wait 1 second before typing the next text
+        }
+      }, 100); // Typing speed
+
+      return () => clearInterval(typingInterval);
+    }
+  }, [textIndex]);
+
   return (
     <div
       className="flex items-center justify-center min-h-screen bg-cover bg-center"
@@ -33,20 +60,12 @@ export default function Home() {
       }}
     >
       <div className="text-center flex flex-col items-center">
-        {/* Welcome Message */}
+        {/* Typing Effect Text */}
         <h3
-          className="mb-4 text-5xl font-extrabold text-cyan-300 bg-gray-900 bg-opacity-70 rounded-full px-8 py-4 drop-shadow-lg shadow-cyan-500"
+          className="mb-8 text-4xl font-bold text-purple-300 bg-gray-900 bg-opacity-80 rounded-lg px-6 py-4 shadow-lg shadow-purple-400"
           style={{ fontFamily: "'Kanit', sans-serif" }}
         >
-          Welcome to My Portfolio
-        </h3>
-
-        {/* Animated Box */}
-        <h3
-          className="mb-8 text-3xl font-semibold text-purple-200 bg-gray-800 bg-opacity-80 rounded-full px-6 py-2 drop-shadow-md inline-block animate-bounce"
-          style={{ fontFamily: "'Kanit', sans-serif" }}
-        >
-          Thuwanon Najai
+          {currentText}
         </h3>
 
         {/* Button */}
