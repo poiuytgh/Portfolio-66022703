@@ -33,7 +33,7 @@ export default function PortfolioPage() {
           <div className="p-6 bg-blue-50 rounded-lg shadow-md">
             <h2 className="text-2xl font-bold mb-4">ทักษะ</h2>
             <ul className="list-disc pl-5 space-y-2">
-              <li>Programming: JavaScript, Python</li>
+              <li>Programming Language: JavaScript, Python</li>
               <li>Web Development: HTML, CSS, React, Next.js</li>
               <li>Team Collaboration & Problem Solving</li>
             </ul>
@@ -46,29 +46,37 @@ export default function PortfolioPage() {
           <div className="space-y-8">
             {/* About Me Section */}
             <div className="p-6 bg-blue-50 rounded-lg shadow-md">
-              <h2 className="text-2xl font-bold mb-4">About Me</h2>
+              <h2 className="text-2xl font-bold mb-4">ข้อมูลเกี่ยวกับฉัน</h2>
               <p>
-                
+              สวัสดีครับ ผมชื่อ นาย ธุวานนท์ นาใจ กําลังศึกษาอยู่ชั้นปีที่ 2 มหาวิทยาลัยพะเยา
+              ผมเป็นคนง่ายๆ ชอบนอนเป็นกิจวัตรประจําวัน งานอดิเรกของผมคือ เป็นคนชอบอ่านนิยาย
+              วาดรูปการ์ตูน อาชีพที่ผมใฝ่ฝันที่อยากเป็น คือ การเลือกที่จะทำอาชีพ QA (Quality Assurance) 
+              เพราะว่าผมมีความสนใจในการตรวจสอบรายละเอียดและมองหาโอกาสในการพัฒนา 
+              และปรับปรุงสิ่งที่มีอยู่ให้ดียิ่งขึ้น การทำงานในสาย QA จะช่วยให้ผมได้ใช้ทักษะในการวิเคราะห์และแก้ไขปัญหา 
+              ซึ่งตรงกับความชอบในการหาความผิดพลาดและหาวิธีปรับปรุงคุณภาพในกระบวนการต่างๆ 
+              นอกจากนี้ QA ยังเป็นอาชีพที่ท้าทายและมีการพัฒนาต่อเนื่อง ซึ่งผมชอบการเรียนรู้สิ่งใหม่ๆ 
+              และทำงานที่สามารถมีส่วนช่วยในการพัฒนาผลิตภัณฑ์และบริการให้มีคุณภาพสูงขึ้น.
               </p>
             </div>
 
             {/* Projects Section */}
             <div className="p-6 bg-blue-50 rounded-lg shadow-md">
-              <h2 className="text-2xl font-bold mb-4">Projects</h2>
+              <h2 className="text-2xl font-bold mb-4">ผลงานประสบการณ์</h2>
               <ul className="list-disc pl-5 space-y-2">
-                <li></li>
-                <li></li>
-                <li></li>
+                <li>อบรม "หัวข้อการใช้ framework ในการพัฒนาซอฟต์แวร์ส่วนหน้า"</li>
+                <li>ทําโปรเจ็คเกี่ยวกับ "Novelvers" รวมนิยาย</li>
+                <li>ทําโปรเจ็คเกี่ยวกับ "เว็บไซต์ซื้อ ขาย art-toy"</li>
               </ul>
             </div>
           </div>
 
           {/* Contact Section */}
           <div className="p-6 bg-blue-50 rounded-lg shadow-md">
-            <h2 className="text-2xl font-bold mb-4">Contact</h2>
-            <p>Facebook:</p>
-            <p>Email:</p>
-            <p>Phone:</p>
+            <h2 className="text-2xl font-bold mb-4">ข้อมูลติดต่อ</h2>
+            <p>Facebook: Thuwanon Najai</p>
+            <p>Instagram: aaicwed</p>
+            <p>Email: 66022703@up.ac.th</p>
+            <p>Phone: 082-331-0162</p>
           </div>
         </div>
       </div>
