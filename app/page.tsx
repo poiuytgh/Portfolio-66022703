@@ -76,7 +76,7 @@ export default function Home() {
             {displayedTexts[0]} {/* First line */}
           </h3>
           <h3
-            className="text-2xl font-semibold text-purple-200 mt-4"
+            className="text-4xl font-bold text-purple-300 mt-4"
             style={{ fontFamily: "'Kanit', sans-serif" }}
           >
             {displayedTexts[1]} {/* Second line */}
