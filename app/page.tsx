@@ -5,12 +5,18 @@ import { useState, useEffect } from "react";
 
 export default function Home() {
   const router = useRouter();
-  const [backgroundImage, setBackgroundImage] = useState<string>("/image/arlecchino1.jpeg");
+
+  const [backgroundImage, setBackgroundImage] = useState<string>(
+    "/image/arlecchino1.jpeg"
+  );
+
   const [currentText, setCurrentText] = useState<string>(""); // Holds the currently typed text
   const texts = ["Welcome to My Portfolio", "Thuwanon Najai"]; // Text to type
+
   const [textIndex, setTextIndex] = useState<number>(0); // Tracks the current text index
   const [currentCharIndex, setCurrentCharIndex] = useState<number>(0); // Tracks the current character index
 
+  // Handle button click to navigate to the '/data' route
   const handleClick = () => {
     router.push("/data");
   };
@@ -22,7 +28,7 @@ export default function Home() {
 
     const interval = setInterval(() => {
       currentIndex = (currentIndex + 1) % images.length;
-      setBackgroundImage(images[currentIndex]);
+      setBackgroundImage(images[currentIndex] || "/image/default.jpeg");
     }, 5000); // Change every 5 seconds
 
     return () => clearInterval(interval);
@@ -38,9 +44,17 @@ export default function Home() {
         // If the entire text has been typed
         if (currentCharIndex + 1 === texts[textIndex].length) {
           clearInterval(typingInterval);
+
           setTimeout(() => {
             // Move to the next text after a delay
-            setTextIndex((prevIndex) => prevIndex + 1);
+            setTextIndex((prevIndex) => {
+              if (prevIndex + 1 < texts.length) {
+                return prevIndex + 1;
+              } else {
+                return 0; // Restart typing from the first text
+              }
+            });
+
             setCurrentCharIndex(0); // Reset character index
             setCurrentText(""); // Clear text for the next line
           }, 1000); // Delay before typing the next text
@@ -66,7 +80,7 @@ export default function Home() {
             className="text-4xl font-bold text-purple-300"
             style={{ fontFamily: "'Kanit', sans-serif" }}
           >
-            {currentText}
+            {currentText || "Loading..."} {/* Display a fallback text */}
           </h3>
         </div>
 
