@@ -26,7 +26,7 @@ export default function Home() {
         <h3
           className="mb-8 text-3xl font-semibold text-gray-200 bg-gray-700 bg-opacity-80 rounded-full px-6 py-2 drop-shadow-md inline-block"
         >
-          Thanakrit Suphamongkhon
+          
         </h3>
 
         {/* Button */}

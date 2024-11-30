@@ -17,8 +17,7 @@ export default function PortfolioPage() {
                 className="rounded-full shadow-md"
               />
             </div>
-            <h1 className="text-3xl font-bold mt-4">Thanakrit Suphamongkhon</h1>
-            <p className="text-gray-600">Software Engineering Student</p>
+            <h1 className="text-3xl font-bold mt-4"></h1>
           </div>
 
           {/* Education Section */}
@@ -49,9 +48,7 @@ export default function PortfolioPage() {
             <div className="p-6 bg-blue-50 rounded-lg shadow-md">
               <h2 className="text-2xl font-bold mb-4">About Me</h2>
               <p>
-                Hello! My name is Thanakrit Suphamongkhon, a second-year Software
-                Engineering student at the University of Phayao. I'm passionate
-                about web development and enjoy learning new technologies.
+                
               </p>
             </div>
 
@@ -59,9 +56,9 @@ export default function PortfolioPage() {
             <div className="p-6 bg-blue-50 rounded-lg shadow-md">
               <h2 className="text-2xl font-bold mb-4">Projects</h2>
               <ul className="list-disc pl-5 space-y-2">
-                <li>Trained in front-end frameworks for modern UI development</li>
-                <li>Developed a website for novel collections: *NovelVerse*</li>
-                <li>Built a BMI-based food recommendation system</li>
+                <li></li>
+                <li></li>
+                <li></li>
               </ul>
             </div>
           </div>
@@ -69,9 +66,9 @@ export default function PortfolioPage() {
           {/* Contact Section */}
           <div className="p-6 bg-blue-50 rounded-lg shadow-md">
             <h2 className="text-2xl font-bold mb-4">Contact</h2>
-            <p>Facebook: Thanakrit Suphamongkhon</p>
-            <p>Email: 66022635@up.ac.th</p>
-            <p>Phone: 099-891-4553</p>
+            <p>Facebook:</p>
+            <p>Email:</p>
+            <p>Phone:</p>
           </div>
         </div>
       </div>
