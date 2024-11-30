@@ -9,9 +9,10 @@ export default function Home() {
     "/image/arlecchino1.jpeg"
   );
   const [displayedTexts, setDisplayedTexts] = useState<string[]>([]); // Tracks all completed texts
-  const texts = ["Welcome to Portfolio", "Thuwanon Najai"]; // Texts to type
+  const texts = ["Welcome to My Portfolio", "Thuwanon Najai"]; // Texts to type
   const [textIndex, setTextIndex] = useState<number>(0); // Current text index
   const [currentCharIndex, setCurrentCharIndex] = useState<number>(0); // Current character index
+  const [showButton, setShowButton] = useState<boolean>(false); // State to control button visibility
 
   const handleClick = () => {
     router.push("/data");
@@ -54,6 +55,13 @@ export default function Home() {
         }, 1000); // Delay before typing the next text
 
         return () => clearTimeout(delayTimeout);
+      } else {
+        // Show the button after both texts are typed
+        const buttonDelay = setTimeout(() => {
+          setShowButton(true); // Show the button after 1 second
+        }, 1000);
+
+        return () => clearTimeout(buttonDelay);
       }
     }
   }, [currentCharIndex, textIndex]);
@@ -84,12 +92,14 @@ export default function Home() {
         </div>
 
         {/* Button */}
-        <button
-          onClick={handleClick}
-          className="mt-8 px-10 py-4 text-lg font-medium text-white bg-gradient-to-r from-purple-500 to-pink-600 rounded-full shadow-lg hover:from-purple-400 hover:to-pink-500 hover:scale-105 transform transition duration-300 focus:outline-none focus:ring-4 focus:ring-pink-300"
-        >
-          View My Portfolio
-        </button>
+        {showButton && (
+          <button
+            onClick={handleClick}
+            className="mt-8 px-10 py-4 text-lg font-medium text-white bg-gradient-to-r from-purple-500 to-pink-600 rounded-full shadow-lg hover:from-purple-400 hover:to-pink-500 hover:scale-105 transform transition duration-300 focus:outline-none focus:ring-4 focus:ring-pink-300 opacity-0 animate-fade-in"
+          >
+            View My Portfolio
+          </button>
+        )}
       </div>
     </div>
   );
