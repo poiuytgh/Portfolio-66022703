@@ -35,13 +35,15 @@ export default function Home() {
       <div className="text-center flex flex-col items-center">
         {/* Welcome Message */}
         <h3
-          className="mb-4 text-5xl font-extrabold text-yellow-300 bg-gray-900 bg-opacity-70 rounded-full px-8 py-4 drop-shadow-lg shadow-yellow-400 animate-pulse"
+          className="mb-4 text-5xl font-extrabold text-cyan-300 bg-gray-900 bg-opacity-70 rounded-full px-8 py-4 drop-shadow-lg shadow-cyan-500"
           style={{ fontFamily: "'Kanit', sans-serif" }}
         >
           Welcome to My Portfolio
         </h3>
+
+        {/* Animated Box */}
         <h3
-          className="mb-8 text-3xl font-semibold text-purple-200 bg-gray-800 bg-opacity-80 rounded-full px-6 py-2 drop-shadow-md inline-block"
+          className="mb-8 text-3xl font-semibold text-purple-200 bg-gray-800 bg-opacity-80 rounded-full px-6 py-2 drop-shadow-md inline-block animate-bounce"
           style={{ fontFamily: "'Kanit', sans-serif" }}
         >
           Thuwanon Najai
