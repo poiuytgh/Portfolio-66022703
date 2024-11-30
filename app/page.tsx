@@ -7,8 +7,9 @@ export default function Home() {
   const router = useRouter();
   const [backgroundImage, setBackgroundImage] = useState<string>("/image/arlecchino1.jpeg");
   const [currentText, setCurrentText] = useState<string>(""); // Holds the currently typed text
-  const [isTypingComplete, setIsTypingComplete] = useState<boolean>(false); // Tracks when typing finishes
-  const texts = ["Welcome to My Portfolio", "Thuwanon Najai"]; // Separate texts for two lines
+  const texts = ["Welcome to My Portfolio", "Thuwanon Najai"]; // Text to type
+  const [currentCharIndex, setCurrentCharIndex] = useState<number>(0); // Tracks the current character index
+  const [textIndex, setTextIndex] = useState<number>(0); // Tracks the current text index
 
   const handleClick = () => {
     router.push("/data");
@@ -29,21 +30,27 @@ export default function Home() {
 
   // Typing effect for the text
   useEffect(() => {
-    let fullText = texts.join("\n"); // Join text with a line break
-    let currentCharIndex = 0;
+    if (textIndex < texts.length) {
+      const typingInterval = setInterval(() => {
+        // Add the next character from the current text
+        setCurrentText((prev) => prev + texts[textIndex][currentCharIndex]);
+        setCurrentCharIndex((prevIndex) => prevIndex + 1);
 
-    const typingInterval = setInterval(() => {
-      setCurrentText((prev) => prev + fullText[currentCharIndex]);
-      currentCharIndex++;
+        // If the entire text has been typed
+        if (currentCharIndex + 1 === texts[textIndex].length) {
+          clearInterval(typingInterval);
+          setTimeout(() => {
+            // Move to the next text after a delay
+            setTextIndex((prevIndex) => prevIndex + 1);
+            setCurrentCharIndex(0); // Reset character index
+            setCurrentText(""); // Clear text for the next line
+          }, 1000); // Delay before typing the next text
+        }
+      }, 100); // Typing speed
 
-      if (currentCharIndex === fullText.length) {
-        clearInterval(typingInterval); // Stop typing when the whole text is done
-        setIsTypingComplete(true); // Mark typing as complete
-      }
-    }, 100); // Typing speed
-
-    return () => clearInterval(typingInterval);
-  }, []);
+      return () => clearInterval(typingInterval);
+    }
+  }, [currentCharIndex, textIndex]);
 
   return (
     <div
@@ -55,10 +62,10 @@ export default function Home() {
     >
       <div className="text-center flex flex-col items-center">
         {/* Typing Effect Text */}
-        <div className="bg-gray-900 bg-opacity-80 rounded-lg px-6 py-4 shadow-lg shadow-purple-400">
+        <div className="bg-gray-900 bg-opacity-80 rounded-xl px-8 py-6 shadow-lg shadow-purple-400">
           <h3
             className="text-4xl font-bold text-purple-300"
-            style={{ fontFamily: "'Kanit', sans-serif", whiteSpace: "pre-wrap" }} // Preserve line breaks
+            style={{ fontFamily: "'Kanit', sans-serif" }}
           >
             {currentText}
           </h3>
