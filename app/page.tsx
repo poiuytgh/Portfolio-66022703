@@ -8,8 +8,8 @@ export default function Home() {
   const [backgroundImage, setBackgroundImage] = useState<string>("/image/arlecchino1.jpeg");
   const [currentText, setCurrentText] = useState<string>(""); // Holds the currently typed text
   const texts = ["Welcome to My Portfolio", "Thuwanon Najai"]; // Text to type
-  const [currentCharIndex, setCurrentCharIndex] = useState<number>(0); // Tracks the current character index
   const [textIndex, setTextIndex] = useState<number>(0); // Tracks the current text index
+  const [currentCharIndex, setCurrentCharIndex] = useState<number>(0); // Tracks the current character index
 
   const handleClick = () => {
     router.push("/data");
@@ -32,7 +32,6 @@ export default function Home() {
   useEffect(() => {
     if (textIndex < texts.length) {
       const typingInterval = setInterval(() => {
-        // Add the next character from the current text
         setCurrentText((prev) => prev + texts[textIndex][currentCharIndex]);
         setCurrentCharIndex((prevIndex) => prevIndex + 1);
 
