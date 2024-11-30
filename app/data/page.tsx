@@ -10,7 +10,7 @@ export default function PortfolioPage() {
           <div className="text-center">
             <div className="relative w-40 h-40 mx-auto">
               <Image
-                src="/image/profile1.jpg"
+                src="/image/pluem1.png"
                 alt="Profile Picture"
                 layout="fill"
                 objectFit="cover"
